@@ -1,0 +1,2921 @@
+; Zilog eZ80 ANSI C Compiler Release 3.4
+; -nomodsect -optsize -noreduceopt -nopadbranch -debug
+; -peephole -globalopt -localcse -const=ROM 
+	FILE	"..\main.c"
+	.assume ADL=1
+.DEBUG "C"
+	SEGMENT CODE
+.BEGREC "fmt_type",19
+.DEFINE "status"
+.VALUE 0
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "flags"
+.VALUE 1
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "size"
+.VALUE 2
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "chr"
+.VALUE 3
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "type"
+.VALUE 4
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "field_width"
+.VALUE 5
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "precision"
+.VALUE 6
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "set_begin"
+.VALUE 7
+.CLASS 8
+.TYPE 34
+.ENDEF
+.DEFINE "set_end"
+.VALUE 10
+.CLASS 8
+.TYPE 34
+.ENDEF
+.DEFINE "pad_whole"
+.VALUE 13
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "pad_pre_fract"
+.VALUE 14
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "pad_post_fract"
+.VALUE 15
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "pad_at"
+.VALUE 16
+.CLASS 8
+.TYPE 34
+.ENDEF
+.ENDREC "fmt_type"
+.BEGREC "flt_info",12
+.DEFINE "flags"
+.VALUE 0
+.CLASS 8
+.TYPE 12
+.ENDEF
+.DEFINE "exp"
+.VALUE 1
+.CLASS 8
+.TYPE 2
+.ENDEF
+.DEFINE "digits"
+.VALUE 2
+.CLASS 8
+.DIM 10
+.TYPE 108
+.ENDEF
+.ENDREC "flt_info"
+	SEGMENT DATA
+_playerShipData:
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-65536
+	DL	-8388608
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-65536
+	DL	-65536
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-65536
+	DL	-65536
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-16711936
+	DL	-16711936
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-16711936
+	DL	-16711936
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-16711936
+	DL	-16711936
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-16711936
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-16711936
+	DL	-16711936
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-16711936
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-16711936
+	DL	-16711936
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-1
+	DL	-16711936
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	-16711936
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711936
+	DL	0
+.DEFINE "playerShipData"
+.ALIAS "_playerShipData"
+.CLASS 69
+.VALUE _playerShipData
+.DIM 256
+.TYPE 111
+.ENDEF
+_playerBulletData:
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16776961
+	DL	-16776961
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16776961
+	DL	-16776961
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16777088
+	DL	-16777088
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16777088
+	DL	-16777088
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+.DEFINE "playerBulletData"
+.ALIAS "_playerBulletData"
+.CLASS 69
+.VALUE _playerBulletData
+.DIM 256
+.TYPE 111
+.ENDEF
+_ufoData:
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16744320
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16744320
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16744320
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16744320
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16744320
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16744320
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16776961
+	DL	-16776961
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16744320
+	DL	0
+	DL	0
+	DL	0
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16711681
+	DL	-16744320
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	-8355712
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+.DEFINE "ufoData"
+.ALIAS "_ufoData"
+.CLASS 69
+.VALUE _ufoData
+.DIM 3
+.DIM 256
+.TYPE 879
+.ENDEF
+_ufoBulletData:
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	-1
+	DL	-1
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+	DL	0
+.DEFINE "ufoBulletData"
+.ALIAS "_ufoBulletData"
+.CLASS 69
+.VALUE _ufoBulletData
+.DIM 256
+.TYPE 111
+.ENDEF
+	SEGMENT CODE
+;    1	/*
+;    2	 * Title:			Space Critters for Agon Light
+;    3	 * Author:			James Higgs (Jum Hig)
+;    4	 * Created:			2023
+;    5	 * Last Updated:		2023-02-28
+;    6	 *
+;    7	 * Modinfo:
+;    8	 */
+;    9	 
+;   10	#include <stdio.h>
+;   11	#include <ctype.h>
+;   12	#include "mos-interface.h"
+;   13	#include "vdp.h"
+;   14	
+;   15	#include "spritedata.h"
+;   16	
+;   17	#define BITMAP_WIDTH	16
+;   18	#define BITMAP_HEIGHT	16
+;   19	
+;   20	#define NUM_SPRITES 50
+;   21	
+;   22	extern int rand();
+;   23	extern char getkeycode();
+;   24	
+;   25	
+;   26	typedef struct //SPRITEPOS_t
+;   27	{
+;   28		UINT16 x;
+;   29		UINT16 y;
+;   30		INT16 dx;
+;   31		INT16 dy;
+;   32	} SPRITEPOS;
+.BEGREC "NONAME0",8
+.DEFINE "x"
+.VALUE 0
+.CLASS 8
+.TYPE 13
+.ENDEF
+.DEFINE "y"
+.VALUE 2
+.CLASS 8
+.TYPE 13
+.ENDEF
+.DEFINE "dx"
+.VALUE 4
+.CLASS 8
+.TYPE 3
+.ENDEF
+.DEFINE "dy"
+.VALUE 6
+.CLASS 8
+.TYPE 3
+.ENDEF
+.ENDREC "NONAME0"
+	SEGMENT BSS
+_sp:
+	DS	400
+.DEFINE "sp"
+.ALIAS "_sp"
+.CLASS 83
+.VALUE _sp
+.DIM 50
+.TAG "NONAME0"
+.TYPE 104
+.ENDEF
+;   33	
+;   34	SPRITEPOS sp[NUM_SPRITES];
+	SEGMENT CODE
+;   35	
+;   36	// Get a random number up to R
+;   37	int randR(int R)
+;   38	{
+_randR:
+.DEFINE "_randR"
+
+.VALUE _randR
+
+.CLASS 2
+
+.TYPE 68
+
+.ENDEF
+
+.BEGFUNC "randR",38,"_randR"
+
+.LINE 38
+
+.DEFINE "R"
+
+.CLASS 65
+
+.VALUE 6
+
+.TYPE 4
+
+.ENDEF
+
+	PUSH	IX
+	LD	IX,0
+	ADD	IX,SP
+;   39		return (rand() % R);
+.LINE 39
+
+	CALL	_rand
+	LD	BC,(IX+%6)
+	CALL	__irems
+;   40	}
+.LINE 40
+
+	LD	SP,IX
+	POP	IX
+	RET	
+
+
+;**************************** _randR ***************************
+;Name                         Addr/Register   Size   Type
+;_rand                               IMPORT  -----   function
+;R                                     IX+6      3   parameter
+
+
+; Stack Frame Size: 9 (bytes)
+;       Spill Code: 0 (instruction)
+
+
+.ENDFUNC "randR",40,"_randR"
+;   41	
+;   42	// Initialise the sprite control blocks
+;   43	void setupSprites()
+;   44	{
+_setupSprites:
+.DEFINE "_setupSprites"
+
+.VALUE _setupSprites
+
+.CLASS 2
+
+.TYPE 65
+
+.ENDEF
+
+.BEGFUNC "setupSprites",44,"_setupSprites"
+
+.LINE 44
+
+.DEFINE "i"
+
+.CLASS 65
+
+.VALUE -1
+
+.TYPE 12
+
+.ENDEF
+
+	PUSH	IX
+	LD	IX,0
+	ADD	IX,SP
+	PUSH	BC
+	PUSH	BC
+	DEC	SP
+;   45		UINT8 i;
+;   46		for (i = 0; i < NUM_SPRITES; i++)
+.LINE 46
+
+	LD	(IX+%FFFFFFFF),%0
+	JR	L_12
+L_10:
+;   47			{
+;   48			vdp_spriteSelect(i);
+.LINE 48
+
+	LD	C,(IX+%FFFFFFFF)
+	LD	B,%0
+	PUSH	BC
+	CALL	_vdp_spriteSelect
+	POP	BC
+;   49			vdp_spriteClearFramesSelected();
+.LINE 49
+
+	CALL	_vdp_spriteClearFramesSelected
+;   50			vdp_spriteAddFrameSelected(2);			// UFO frame 1
+.LINE 50
+
+	LD	BC,2
+	PUSH	BC
+	CALL	_vdp_spriteAddFrameSelected
+	POP	BC
+;   51			vdp_spriteAddFrameSelected(3);			// UFO frame 2
+.LINE 51
+
+	LD	BC,3
+	PUSH	BC
+	CALL	_vdp_spriteAddFrameSelected
+	POP	BC
+;   52			vdp_spriteAddFrameSelected(4);			// UFO frame 3
+.LINE 52
+
+	LD	BC,4
+	PUSH	BC
+	CALL	_vdp_spriteAddFrameSelected
+	POP	BC
+;   53			vdp_spriteSetFrameSelected(0);
+.LINE 53
+
+	LD	BC,0
+	PUSH	BC
+	CALL	_vdp_spriteSetFrameSelected
+	POP	BC
+;   54			vdp_spriteShowSelected();
+.LINE 54
+
+	CALL	_vdp_spriteShowSelected
+;   55				
+;   56			sp[i].x = randR(300);
+.LINE 56
+
+	LD	BC,300
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	LD	BC,HL
+	LD	A,(IX+%FFFFFFFF)
+	UEXT	HL
+	LD	L,A
+	ADD	HL,HL
+	ADD	HL,HL
+	ADD	HL,HL
+	LD	DE,_sp
+	ADD	HL,DE
+	LD	IY,HL
+	LD	(IY+%0),C
+	LD	(IY+%1),B
+;   57			sp[i].y = randR(190);
+.LINE 57
+
+	LD	BC,190
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	LD	BC,HL
+	LD	A,(IX+%FFFFFFFF)
+	UEXT	HL
+	LD	L,A
+	ADD	HL,HL
+	ADD	HL,HL
+	ADD	HL,HL
+	LD	DE,_sp
+	ADD	HL,DE
+	LD	IY,HL
+	LD	(IY+%2),C
+	LD	(IY+%3),B
+;   58			sp[i].dx = (randR(100) < 50) ? -1 : 1;
+.LINE 58
+
+	LD	BC,100
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	LD	BC,50
+	OR	A,A
+	SBC	HL,BC
+	CALL	__setflag
+	JP	P,L_4
+	LD	BC,16777215
+	LD	(IX+%FFFFFFFC),BC
+	JR	L_5
+L_4:
+	LD	BC,1
+	LD	(IX+%FFFFFFFC),BC
+L_5:
+	LD	A,(IX+%FFFFFFFF)
+	UEXT	HL
+	LD	L,A
+	ADD	HL,HL
+	ADD	HL,HL
+	ADD	HL,HL
+	LD	BC,_sp
+	ADD	HL,BC
+	LD	IY,HL
+	LD	BC,(IX+%FFFFFFFC)
+	LD	(IY+%4),C
+	LD	(IY+%5),B
+;   59			sp[i].dy = (randR(100) < 50) ? -1 : 1;
+.LINE 59
+
+	LD	BC,100
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	LD	BC,50
+	OR	A,A
+	SBC	HL,BC
+	CALL	__setflag
+	JP	P,L_8
+	LD	BC,16777215
+	LD	(IX+%FFFFFFF9),BC
+	JR	L_9
+L_8:
+	LD	BC,1
+	LD	(IX+%FFFFFFF9),BC
+L_9:
+	LD	A,(IX+%FFFFFFFF)
+	UEXT	HL
+	LD	L,A
+	ADD	HL,HL
+	ADD	HL,HL
+	ADD	HL,HL
+	LD	BC,_sp
+	ADD	HL,BC
+	LD	IY,HL
+	LD	BC,(IX+%FFFFFFF9)
+	LD	(IY+%6),C
+	LD	(IY+%7),B
+	INC	(IX+%FFFFFFFF)
+;   60			}
+L_12:
+.LINE 60
+
+	LD	A,(IX+%FFFFFFFF)
+	CP	A,%32
+	JR	C,L_10
+;   61	}
+.LINE 61
+
+	LD	SP,IX
+	POP	IX
+	RET	
+
+
+;**************************** _setupSprites ***************************
+;Name                         Addr/Register   Size   Type
+;_sp                                 STATIC    400   variable
+;_vdp_spriteShowSelected             IMPORT  -----   function
+;_vdp_spriteSetFrameSelected         IMPORT  -----   function
+;_vdp_spriteAddFrameSelected         IMPORT  -----   function
+;_vdp_spriteClearFramesSelected      IMPORT  -----   function
+;_vdp_spriteSelect                   IMPORT  -----   function
+;temp6                                 IX-7      3   variable
+;temp2                                 IX-4      3   variable
+;i                                     IX-1      1   variable
+
+
+; Stack Frame Size: 13 (bytes)
+;       Spill Code: 0 (instruction)
+
+
+.ENDFUNC "setupSprites",61,"_setupSprites"
+;   62	
+;   63	// Wait a specific number of frames (vertical syncs)
+;   64	void waitFrames(int numFrames)
+;   65	{
+_waitFrames:
+.DEFINE "_waitFrames"
+
+.VALUE _waitFrames
+
+.CLASS 2
+
+.TYPE 65
+
+.ENDEF
+
+.BEGFUNC "waitFrames",65,"_waitFrames"
+
+.LINE 65
+
+.DEFINE "numFrames"
+
+.CLASS 65
+
+.VALUE 6
+
+.TYPE 4
+
+.ENDEF
+
+.DEFINE "i"
+
+.CLASS 65
+
+.VALUE -3
+
+.TYPE 4
+
+.ENDEF
+
+.DEFINE "j"
+
+.CLASS 65
+
+.VALUE -6
+
+.TYPE 4
+
+.ENDEF
+
+	PUSH	IX
+	LD	IX,0
+	ADD	IX,SP
+	PUSH	BC
+	PUSH	BC
+;   66		int i, j;
+;   67		for (i = 0; i < numFrames; i++)
+.LINE 67
+
+	LD	BC,0
+	LD	(IX+%FFFFFFFD),BC
+	JR	L_21
+L_19:
+;   68			{
+;   69			waitvblank();
+.LINE 69
+
+	CALL	_waitvblank
+;   70			// wait for a bit till we are out of vblank
+;   71			for (j= 0; j < 10000; j++) { }
+.LINE 71
+
+	LD	BC,0
+	LD	(IX+%FFFFFFFA),BC
+	JR	L_18
+L_16:
+	LD	BC,(IX+%FFFFFFFA)
+	INC	BC
+	LD	(IX+%FFFFFFFA),BC
+L_18:
+	LD	BC,10000
+	LD	HL,(IX+%FFFFFFFA)
+	OR	A,A
+	SBC	HL,BC
+	CALL	__setflag
+	JP	M,L_16
+	LD	BC,(IX+%FFFFFFFD)
+	INC	BC
+	LD	(IX+%FFFFFFFD),BC
+;   72			}
+L_21:
+.LINE 72
+
+	LD	BC,(IX+%6)
+	LD	HL,(IX+%FFFFFFFD)
+	OR	A,A
+	SBC	HL,BC
+	CALL	__setflag
+	JP	M,L_19
+;   73	}
+.LINE 73
+
+	LD	SP,IX
+	POP	IX
+	RET	
+
+
+;**************************** _waitFrames ***************************
+;Name                         Addr/Register   Size   Type
+;_waitvblank                         IMPORT  -----   function
+;j                                     IX-6      3   variable
+;i                                     IX-3      3   variable
+;numFrames                             IX+6      3   parameter
+
+
+; Stack Frame Size: 15 (bytes)
+;       Spill Code: 0 (instruction)
+
+
+.ENDFUNC "waitFrames",73,"_waitFrames"
+;   74	
+;   75	/// @param[in] argc			Argument count
+;   76	/// @param[in] argv			Pointer to the argument string - zero terminated, parameters separated by spaces
+;   77	int main(int argc, char * argv[]) {
+_main:
+.DEFINE "_main"
+
+.VALUE _main
+
+.CLASS 2
+
+.TYPE 68
+
+.ENDEF
+
+.BEGFUNC "main",77,"_main"
+
+.LINE 77
+
+.DEFINE "argc"
+
+.CLASS 65
+
+.VALUE 6
+
+.TYPE 4
+
+.ENDEF
+
+.DEFINE "argv"
+
+.CLASS 65
+
+.VALUE 9
+
+.TYPE 290
+
+.ENDEF
+
+.DEFINE "i"
+
+.CLASS 65
+
+.VALUE -3
+
+.TYPE 4
+
+.ENDEF
+
+.DEFINE "j"
+
+.CLASS 65
+
+.VALUE -9
+
+.TYPE 4
+
+.ENDEF
+
+.DEFINE "k"
+
+.CLASS 65
+
+.VALUE -22
+
+.TYPE 12
+
+.ENDEF
+
+	PUSH	IX
+	LD	IX,0
+	ADD	IX,SP
+	LEA	HL,IX+%FFFFFFD8
+	LD	SP,HL
+;   78		int	i, j;
+;   79		UINT8 k, flags;
+;   80		UINT16 t;
+;   81		
+;   82		//putch(0x0C);		// CLS
+;   83		//DI();
+;   84		
+;   85		vdp_mode(2);
+.LINE 85
+
+	LD	BC,2
+	PUSH	BC
+	CALL	_vdp_mode
+	POP	BC
+;   86		vdp_cursorDisable();
+.LINE 86
+
+	CALL	_vdp_cursorDisable
+;   87		vdp_cls();
+.LINE 87
+
+	CALL	_vdp_cls
+;   88		
+;   89		
+;   90		//printf("Hello World\n\r");
+;   91		//printf("Arguments:\n\r");
+;   92		//printf("- argc: %d\n\r", argc);
+;   93		//
+;   94		//for(i = 0; i < argc; i++) {
+;   95		//	printf("- argv[%d]: %s\n\r", i, argv[i]);
+;   96		//}
+;   97		
+;   98		printf("C Sprites Demo\n\r");
+.LINE 98
+
+	LD	BC,___print_uputch
+	LD	(___print_xputch),BC
+	LD	BC,L__8
+	PUSH	BC
+	CALL	___print_sendstring
+	POP	BC
+;   99	
+;  100		
+;  101		// Upload sprite data to the VDP
+;  102		printf("Uploading bitmap data...\n\r");
+.LINE 102
+
+	LD	BC,___print_uputch
+	LD	(___print_xputch),BC
+	LD	BC,L__9
+	PUSH	BC
+	CALL	___print_sendstring
+	POP	BC
+;  103		vdp_bitmapSendData(0, BITMAP_WIDTH, BITMAP_HEIGHT, playerShipData);
+.LINE 103
+
+	LD	BC,_playerShipData
+	PUSH	BC
+	LD	BC,16
+	PUSH	BC
+	PUSH	BC
+	LD	BC,0
+	PUSH	BC
+	CALL	_vdp_bitmapSendData
+	POP	BC
+	POP	BC
+	POP	BC
+	POP	BC
+;  104		vdp_bitmapSendData(1, BITMAP_WIDTH, BITMAP_HEIGHT, playerBulletData);
+.LINE 104
+
+	LD	BC,_playerBulletData
+	PUSH	BC
+	LD	BC,16
+	PUSH	BC
+	PUSH	BC
+	LD	BC,1
+	PUSH	BC
+	CALL	_vdp_bitmapSendData
+	POP	BC
+	POP	BC
+	POP	BC
+	POP	BC
+;  105		vdp_bitmapSendData(2, BITMAP_WIDTH, BITMAP_HEIGHT, ufoData[0]);	
+.LINE 105
+
+	LD	BC,_ufoData
+	PUSH	BC
+	LD	BC,16
+	PUSH	BC
+	PUSH	BC
+	LD	BC,2
+	PUSH	BC
+	CALL	_vdp_bitmapSendData
+	POP	BC
+	POP	BC
+	POP	BC
+	POP	BC
+;  106		vdp_bitmapSendData(3, BITMAP_WIDTH, BITMAP_HEIGHT, ufoData[1]);
+.LINE 106
+
+	LD	BC,1024
+	LD	HL,_ufoData
+	ADD	HL,BC
+	PUSH	HL
+	LD	BC,16
+	PUSH	BC
+	PUSH	BC
+	LD	BC,3
+	PUSH	BC
+	CALL	_vdp_bitmapSendData
+	POP	BC
+	POP	BC
+	POP	BC
+	POP	BC
+;  107		vdp_bitmapSendData(4, BITMAP_WIDTH, BITMAP_HEIGHT, ufoData[2]);
+.LINE 107
+
+	LD	BC,2048
+	LD	HL,_ufoData
+	ADD	HL,BC
+	PUSH	HL
+	LD	BC,16
+	PUSH	BC
+	PUSH	BC
+	LD	BC,4
+	PUSH	BC
+	CALL	_vdp_bitmapSendData
+	POP	BC
+	POP	BC
+	POP	BC
+	POP	BC
+;  108		vdp_bitmapSendData(5, BITMAP_WIDTH, BITMAP_HEIGHT, ufoBulletData);
+.LINE 108
+
+	LD	BC,_ufoBulletData
+	PUSH	BC
+	LD	BC,16
+	PUSH	BC
+	PUSH	BC
+	LD	BC,5
+	PUSH	BC
+	CALL	_vdp_bitmapSendData
+	POP	BC
+	POP	BC
+	POP	BC
+	POP	BC
+;  109		
+;  110		for (i = 0; i < 10; i++)
+.LINE 110
+
+	LD	BC,0
+	LD	(IX+%FFFFFFFD),BC
+	JR	L_26
+L_24:
+;  111			{
+;  112			vdp_bitmapDraw(0, randR(300) , randR(160) + 30);
+.LINE 112
+
+	LD	BC,160
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	LD	IY,HL
+	LEA	BC,IY+%1E
+	PUSH	BC
+	LD	BC,300
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	PUSH	HL
+	LD	BC,0
+	PUSH	BC
+	CALL	_vdp_bitmapDraw
+	POP	BC
+	POP	BC
+	POP	BC
+	LD	BC,(IX+%FFFFFFFD)
+	INC	BC
+	LD	(IX+%FFFFFFFD),BC
+;  113			}
+L_26:
+.LINE 113
+
+	LD	BC,10
+	LD	HL,(IX+%FFFFFFFD)
+	OR	A,A
+	SBC	HL,BC
+	CALL	__setflag
+	JP	M,L_24
+;  114		vdp_spriteRefresh();
+.LINE 114
+
+	CALL	_vdp_spriteRefresh
+;  115		waitFrames(50);
+.LINE 115
+
+	LD	BC,50
+	PUSH	BC
+	CALL	_waitFrames
+	POP	BC
+;  116			
+;  117		// Set up sprites
+;  118		// Note: BBCBASIC procedure:
+;  119		//    1. Select sprite n   (VDU 23, 27, 4, n)
+;  120		//    2. Clear frames for current sprite  (VDU 23, 27, 5)
+;  121		//    3. Add bitmap 0 as frame 0 of current sprite (VDU 23, 27, 6, 0)
+;  122		//    4. Show the current sprite (VDU 23, 27, 11)
+;  123		//    5. Set total number of sprites to display (VDU 23, 27, 7, total)
+;  124		//   Move the sprites:
+;  125		//    1. Select sprite n (VDU 23, 27, 4, n)
+;  126		//    2. Move selected sprite to  (VDU 23, 27, 13, X, Y) 
+;  127		//   Refresh the sprites
+;  128		//    1. *FX19    (wait for VSYNC)
+;  129		//    2. Refresh (VDU 23, 27, 15)
+;  130		
+;  131		printf("Setting up sprites...\n\r");
+.LINE 131
+
+	LD	BC,___print_uputch
+	LD	(___print_xputch),BC
+	LD	BC,L__11
+	PUSH	BC
+	CALL	___print_sendstring
+	POP	BC
+;  132		setupSprites();		// sets up 16 sprites
+.LINE 132
+
+	CALL	_setupSprites
+;  133		
+;  134		vdp_spriteActivateTotal(NUM_SPRITES);
+.LINE 134
+
+	LD	BC,50
+	PUSH	BC
+	CALL	_vdp_spriteActivateTotal
+	POP	BC
+;  135		
+;  136		for (i = 0; i < NUM_SPRITES; i++)
+.LINE 136
+
+	LD	BC,0
+	LD	(IX+%FFFFFFFD),BC
+	JR	L_31
+L_29:
+;  137			{
+;  138			vdp_spriteMoveTo(i, sp[i].x, sp[i].y);
+.LINE 138
+
+	LD	HL,(IX+%FFFFFFFD)
+	ADD	HL,HL
+	ADD	HL,HL
+	ADD	HL,HL
+	LD	BC,_sp
+	ADD	HL,BC
+	LD	(IX+%FFFFFFE1),HL
+	LD	IY,(IX+%FFFFFFE1)
+	LD	BC,(IY+%2)
+	PUSH	BC
+	LD	BC,(IY+%0)
+	PUSH	BC
+	LD	C,(IX+%FFFFFFFD)
+	LD	B,%0
+	PUSH	BC
+	CALL	_vdp_spriteMoveTo
+	POP	BC
+	POP	BC
+	POP	BC
+	LD	BC,(IX+%FFFFFFFD)
+	INC	BC
+	LD	(IX+%FFFFFFFD),BC
+;  139			}	
+L_31:
+.LINE 139
+
+	LD	BC,50
+	LD	HL,(IX+%FFFFFFFD)
+	OR	A,A
+	SBC	HL,BC
+	CALL	__setflag
+	JP	M,L_29
+;  140		
+;  141		vdp_spriteRefresh();
+.LINE 141
+
+	CALL	_vdp_spriteRefresh
+;  142	
+;  143		//EI();
+;  144		
+;  145		printf("Animating... Press any key to exit\n\r");
+.LINE 145
+
+	LD	BC,___print_uputch
+	LD	(___print_xputch),BC
+	LD	BC,L__13
+	PUSH	BC
+	CALL	___print_sendstring
+	POP	BC
+;  146		for (i = 0; i < 1000; i++)
+.LINE 146
+
+	LD	BC,0
+	LD	(IX+%FFFFFFFD),BC
+	JR	L_52
+L_50:
+;  147			{
+;  148			waitvblank();
+.LINE 148
+
+	CALL	_waitvblank
+;  149			if (i > 500)
+.LINE 149
+
+	LD	BC,(IX+%FFFFFFFD)
+	LD	HL,500
+	OR	A,A
+	SBC	HL,BC
+	CALL	__setflag
+	JP	P,L_47
+;  150				{
+;  151				vdp_scroll(1, 1, 1);
+.LINE 151
+
+	LD	BC,1
+	PUSH	BC
+	PUSH	BC
+	PUSH	BC
+	CALL	_vdp_scroll
+	POP	BC
+	POP	BC
+	POP	BC
+;  152				vdp_plotColour(randR(256), randR(256), randR(256));
+.LINE 152
+
+	LD	BC,256
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	LD	C,L
+	LD	B,%0
+	PUSH	BC
+	LD	BC,256
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	LD	C,L
+	LD	B,%0
+	PUSH	BC
+	LD	BC,256
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	LD	C,L
+	LD	B,%0
+	PUSH	BC
+	CALL	_vdp_plotColour
+	POP	BC
+	POP	BC
+	POP	BC
+;  153				vdp_plotPoint(319, randR(200));
+.LINE 153
+
+	LD	BC,200
+	PUSH	BC
+	CALL	_randR
+	POP	BC
+	PUSH	HL
+	LD	BC,319
+	PUSH	BC
+	CALL	_vdp_plotPoint
+	POP	BC
+	POP	BC
+;  154				}
+L_47:
+.LINE 154
+
+;  155	
+;  156			for (j = 0; j < NUM_SPRITES; j++)
+.LINE 156
+
+	LD	BC,0
+	LD	(IX+%FFFFFFF7),BC
+	JR	L_46
+L_44:
+;  157				{
+;  158				sp[j].x += sp[j].dx;
+.LINE 158
+
+	LD	HL,(IX+%FFFFFFF7)
+	ADD	HL,HL
+	ADD	HL,HL
+	ADD	HL,HL
+	LD	(IX+%FFFFFFFA),HL
+	LD	BC,_sp
+	LD	HL,(IX+%FFFFFFFA)
+	ADD	HL,BC
+	LD	(IX+%FFFFFFDE),HL
+	LD	IY,(IX+%FFFFFFDE)
+	LD	BC,(IY+%0)
+	LD	HL,(IY+%4)
+	ADD.SIS	HL,BC
+	LD	BC,HL
+	LD	(IY+%0),C
+	LD	(IY+%1),B
+;  159				if (sp[j].x < 2)
+.LINE 159
+
+	LD.LIS	BC,2
+	LD	HL,(IY+%0)
+	OR	A,A
+	SBC.SIS	HL,BC
+	JR	NC,L_38
+;  160					sp[j].dx = 1;
+.LINE 160
+
+	LD	BC,(IX+%FFFFFFFA)
+	LD	(IX+%FFFFFFE7),BC
+	LD	BC,_sp
+	LD	HL,(IX+%FFFFFFFA)
+	ADD	HL,BC
+	LD	(IX+%FFFFFFEB),HL
+	LD	(IX+%FFFFFFEE),HL
+	LD	IY,(IX+%FFFFFFEE)
+	LD	(IY+%4),%1
+	LD	(IY+%5),%0
+;  161				else if (sp[j].x > 317)
+.LINE 161
+
+	JR	L_39
+L_38:
+	LD	BC,(IX+%FFFFFFFA)
+	LD	(IX+%FFFFFFE7),BC
+	LD	BC,_sp
+	LD	HL,(IX+%FFFFFFFA)
+	ADD	HL,BC
+	LD	(IX+%FFFFFFF4),HL
+	LD	(IX+%FFFFFFEB),HL
+	LD	(IX+%FFFFFFEE),HL
+	LD	IY,(IX+%FFFFFFF4)
+	LD	BC,(IY+%0)
+	LD.LIS	HL,317
+	OR	A,A
+	SBC.SIS	HL,BC
+	JR	NC,L_39
+;  162					sp[j].dx = -1;
+.LINE 162
+
+	LD	BC,(IX+%FFFFFFF4)
+	LD	(IX+%FFFFFFEB),BC
+	LD	BC,(IX+%FFFFFFF4)
+	LD	(IX+%FFFFFFEE),BC
+	LD	IY,(IX+%FFFFFFF4)
+	LD	A,%FF
+	LD	(IY+%4),A
+	LD	(IY+%5),A
+L_39:
+;  163				
+;  164				sp[j].y += sp[j].dy;
+.LINE 164
+
+	LD	BC,(IX+%FFFFFFE7)
+	LD	(IX+%FFFFFFF1),BC
+	LD	BC,_sp
+	LD	HL,(IX+%FFFFFFF1)
+	ADD	HL,BC
+	LD	(IX+%FFFFFFDB),HL
+	LD	IY,(IX+%FFFFFFDB)
+	LD	BC,(IY+%2)
+	LD	HL,(IY+%6)
+	ADD.SIS	HL,BC
+	LD	BC,HL
+	LD	(IY+%2),C
+	LD	(IY+%3),B
+;  165				if (sp[j].y < 2)
+.LINE 165
+
+	LD.LIS	BC,2
+	LD	HL,(IY+%2)
+	OR	A,A
+	SBC.SIS	HL,BC
+	JR	NC,L_42
+;  166					sp[j].dy = 1;
+.LINE 166
+
+	LD	IY,(IX+%FFFFFFEB)
+	LD	(IY+%6),%1
+	LD	(IY+%7),%0
+;  167				else if (sp[j].y > 253)
+.LINE 167
+
+	JR	L_43
+L_42:
+	LD	BC,(IX+%FFFFFFEE)
+	LD	(IX+%FFFFFFE4),BC
+	LD	IY,(IX+%FFFFFFE4)
+	LD	BC,(IY+%2)
+	LD.LIS	HL,253
+	OR	A,A
+	SBC.SIS	HL,BC
+	JR	NC,L_43
+;  168					sp[j].dy = -1;
+.LINE 168
+
+	LD	IY,(IX+%FFFFFFE4)
+	LD	A,%FF
+	LD	(IY+%6),A
+	LD	(IY+%7),A
+L_43:
+;  169				
+;  170				vdp_spriteSelect(j);
+.LINE 170
+
+	LD	C,(IX+%FFFFFFF7)
+	LD	B,%0
+	PUSH	BC
+	CALL	_vdp_spriteSelect
+	POP	BC
+;  171				vdp_spriteMoveToSelected(sp[j].x, sp[j].y);
+.LINE 171
+
+	LD	BC,_sp
+	LD	HL,(IX+%FFFFFFF1)
+	ADD	HL,BC
+	LD	(IX+%FFFFFFD8),HL
+	LD	IY,(IX+%FFFFFFD8)
+	LD	BC,(IY+%2)
+	PUSH	BC
+	LD	BC,(IY+%0)
+	PUSH	BC
+	CALL	_vdp_spriteMoveToSelected
+	POP	BC
+	POP	BC
+;  172				vdp_spriteNextFrameSelected();
+.LINE 172
+
+	CALL	_vdp_spriteNextFrameSelected
+	LD	BC,(IX+%FFFFFFF7)
+	INC	BC
+	LD	(IX+%FFFFFFF7),BC
+;  173				}
+L_46:
+.LINE 173
+
+	LD	BC,50
+	LD	HL,(IX+%FFFFFFF7)
+	OR	A,A
+	SBC	HL,BC
+	CALL	__setflag
+	JP	M,L_44
+;  174			
+;  175			vdp_spriteRefresh();
+.LINE 175
+
+	CALL	_vdp_spriteRefresh
+;  176				
+;  177			//keycode = getsysvar8bit(sysvar_keycode);	// doesn't work?
+;  178			k = getkeycode();
+.LINE 178
+
+	CALL	_getkeycode
+	LD	(IX+%FFFFFFEA),A
+;  179			//printf("%d\n\r", k);
+;  180			//if (27 == k)
+;  181			if (k != 0)
+.LINE 181
+
+	OR	A,A
+	JR	NZ,L_53
+	LD	BC,(IX+%FFFFFFFD)
+	INC	BC
+	LD	(IX+%FFFFFFFD),BC
+;  182				break;
+;  183	
+;  184			//t = getsysvar16bit(sysvar_time);
+;  185			//vdp_cursorGoto(0, 20);
+;  186			//printf("%d\n\r", t);
+;  187			}
+L_52:
+.LINE 187
+
+	LD	BC,1000
+	LD	HL,(IX+%FFFFFFFD)
+	OR	A,A
+	SBC	HL,BC
+	JP	M,L_50
+L_53:
+;  188			
+;  189		vdp_spriteActivateTotal(0);
+.LINE 189
+
+	LD	BC,0
+	PUSH	BC
+	CALL	_vdp_spriteActivateTotal
+	POP	BC
+;  190		vdp_spriteRefresh();
+.LINE 190
+
+	CALL	_vdp_spriteRefresh
+;  191		vdp_mode(1);
+.LINE 191
+
+	LD	BC,1
+	PUSH	BC
+	CALL	_vdp_mode
+	POP	BC
+;  192		vdp_cursorEnable();
+.LINE 192
+
+	CALL	_vdp_cursorEnable
+;  193		
+;  194		return 0;
+.LINE 194
+
+	OR	A,A
+	SBC	HL,HL
+.LINE 195
+
+	LD	SP,IX
+	POP	IX
+	RET	
+
+
+;**************************** _main ***************************
+;Name                         Addr/Register   Size   Type
+;_vdp_cursorEnable                   IMPORT  -----   function
+;_getkeycode                         IMPORT  -----   function
+;_vdp_spriteNextFrameSelected        IMPORT  -----   function
+;_vdp_spriteMoveToSelected           IMPORT  -----   function
+;_vdp_spriteSelect                   IMPORT  -----   function
+;_vdp_plotPoint                      IMPORT  -----   function
+;_vdp_plotColour                     IMPORT  -----   function
+;_vdp_scroll                         IMPORT  -----   function
+;_waitvblank                         IMPORT  -----   function
+;_vdp_spriteMoveTo                   IMPORT  -----   function
+;_sp                                 STATIC    400   variable
+;_vdp_spriteActivateTotal            IMPORT  -----   function
+;_vdp_spriteRefresh                  IMPORT  -----   function
+;_vdp_bitmapDraw                     IMPORT  -----   function
+;_ufoBulletData                      STATIC   1024   variable
+;_ufoData                            STATIC   3072   variable
+;_playerBulletData                   STATIC   1024   variable
+;_playerShipData                     STATIC   1024   variable
+;_vdp_bitmapSendData                 IMPORT  -----   function
+;___print_sendstring                 IMPORT  -----   function
+;___print_xputch                     IMPORT      3   variable
+;___print_uputch                     IMPORT  -----   function
+;_vdp_cls                            IMPORT  -----   function
+;_vdp_cursorDisable                  IMPORT  -----   function
+;_vdp_mode                           IMPORT  -----   function
+;G_10                                 IX-28      3   variable
+;G_4                                  IX-25      3   variable
+;k                                    IX-22      1   variable
+;G_6                                  IX-21      3   variable
+;G_8                                  IX-18      3   variable
+;G_11                                 IX-15      3   variable
+;G_3                                  IX-12      3   variable
+;j                                     IX-9      3   variable
+;G_0                                   IX-6      3   variable
+;i                                     IX-3      3   variable
+;argv                                  IX+9      3   parameter
+;argc                                  IX+6      3   parameter
+
+
+; Stack Frame Size: 52 (bytes)
+;       Spill Code: 0 (instruction)
+
+
+.ENDFUNC "main",195,"_main"
+	SEGMENT STRSECT
+L__8:
+	DB	"C Sprites Demo"
+	DB	10,13,0
+L__9:
+	DB	"Uploading bitmap data..."
+	DB	10,13,0
+L__11:
+	DB	"Setting up sprites..."
+	DB	10,13,0
+L__13:
+	DB	"Animating... Press any key to exit"
+	DB	10,13,0
+	XREF _getkeycode:ROM
+	XREF _rand:ROM
+	XREF _vdp_spriteRefresh:ROM
+	XREF _vdp_spriteActivateTotal:ROM
+	XREF _vdp_spriteMoveTo:ROM
+	XREF _vdp_spriteMoveToSelected:ROM
+	XREF _vdp_spriteShowSelected:ROM
+	XREF _vdp_spriteSetFrameSelected:ROM
+	XREF _vdp_spriteNextFrameSelected:ROM
+	XREF _vdp_spriteAddFrameSelected:ROM
+	XREF _vdp_spriteClearFramesSelected:ROM
+	XREF _vdp_spriteSelect:ROM
+	XREF _vdp_bitmapDraw:ROM
+	XREF _vdp_bitmapSendData:ROM
+	XREF _vdp_plotPoint:ROM
+	XREF _vdp_plotColour:ROM
+	XREF _vdp_cursorEnable:ROM
+	XREF _vdp_cursorDisable:ROM
+	XREF _vdp_cls:ROM
+	XREF _vdp_scroll:ROM
+	XREF _vdp_mode:ROM
+	XREF _waitvblank:ROM
+	XREF ___print_sendstring:ROM
+	XREF ___print_xputch:ROM
+	XREF ___print_uputch:ROM
+	XREF __irems:ROM
+	XREF __setflag:ROM
+	XDEF _main
+	XDEF _waitFrames
+	XDEF _setupSprites
+	XDEF _randR
+	XDEF _sp
+	XDEF _ufoBulletData
+	XDEF _ufoData
+	XDEF _playerBulletData
+	XDEF _playerShipData
+	END

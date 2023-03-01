@@ -4,7 +4,7 @@ Copyright (C) 1999-2008 Zilog, Inc. All Rights Reserved
 
 LINK MAP:
 
-DATE:      Wed Mar 01 09:55:02 2023
+DATE:      Wed Mar 01 10:16:14 2023
 PROCESSOR: assembler
 FILES:     .\init.obj             .\main.obj             .\vdp.obj              
            .\mos-interface.obj
@@ -70,7 +70,7 @@ STRSECT            normal data            D:042EC4    D:042F2C       69h
 SEGMENTS WITHIN MODULES:
 ========================
 
-Module: ..\main.c (File: main.obj) Version: 1:0 03/01/2023 09:55:02
+Module: ..\main.c (File: main.obj) Version: 1:0 03/01/2023 10:16:13
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -87,7 +87,7 @@ Module: ..\src\boot\common\zsldevinitdummy.asm (File: zsldevinitdummy.obj) Versi
     Segment: CODE                              D:041247    D:041247        1h
 
 
-Module: ..\vdp.c (File: vdp.obj) Version: 1:0 02/28/2023 08:54:39
+Module: ..\vdp.c (File: vdp.obj) Version: 1:0 03/01/2023 10:16:14
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -264,7 +264,7 @@ Module: .\strlen.asm (Library: crtD.lib) Version: 1:0 10/11/2019 10:08:44
     Segment: CODE                              D:04149F    D:0414B3       15h
 
 
-Module: C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\Agon_Critters\init.asm (File: init.obj) Version: 1:0 02/28/2023 08:54:38
+Module: C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\Agon_Critters\init.asm (File: init.obj) Version: 1:0 03/01/2023 10:16:13
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------
@@ -272,7 +272,7 @@ Module: C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\Agon_Critters\init.asm (File: init.obj
     Segment: DATA                              D:04168D    D:0416BC       30h
 
 
-Module: C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\Agon_Critters\mos-interface.asm (File: mos-interface.obj) Version: 1:0 03/01/2023 09:23:33
+Module: C:\ZiLOG\ZDSII_eZ80Acclaim!_5.3.4\Agon_Critters\mos-interface.asm (File: mos-interface.obj) Version: 1:0 03/01/2023 10:16:14
 
     Name                                           Base         Top      Size
     --------------------------------------- ----------- ----------- ---------

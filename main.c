@@ -2,9 +2,10 @@
  * Title:			Space Critters for Agon Light
  * Author:			James Higgs (Jum Hig)
  * Created:			2023
- * Last Updated:		2023-02-28
+ * Last Updated:		2023-04-21
  *
- * Modinfo:
+ * Revisions:
+ * 2023-04-21 - Updated to use MOS and VDP 1.03
  */
  
 #include <stdio.h>
@@ -20,8 +21,6 @@
 #define NUM_SPRITES 50
 
 extern int rand();
-extern char getkeycode();
-
 
 typedef struct //SPRITEPOS_t
 {
@@ -79,24 +78,15 @@ int main(int argc, char * argv[]) {
 	UINT8 k, flags;
 	UINT16 t;
 	
-	//putch(0x0C);		// CLS
-	//DI();
-	
 	vdp_mode(2);
 	vdp_cursorDisable();
 	vdp_cls();
-	
-	
-	//printf("Hello World\n\r");
-	//printf("Arguments:\n\r");
-	//printf("- argc: %d\n\r", argc);
-	//
-	//for(i = 0; i < argc; i++) {
-	//	printf("- argv[%d]: %s\n\r", i, argv[i]);
-	//}
-	
-	printf("C Sprites Demo\n\r");
 
+	printf("C Sprites Demo\n\r");
+	
+	//k = vdp_asciiCodeAt(1, 0);
+	//printf("Ascii code at 1,0 = %d\n\r", k);
+	//getch();
 	
 	// Upload sprite data to the VDP
 	printf("Uploading bitmap data...\n\r");
@@ -133,6 +123,7 @@ int main(int argc, char * argv[]) {
 	
 	vdp_spriteActivateTotal(NUM_SPRITES);
 	
+	// Move the sprites to their initial positions
 	for (i = 0; i < NUM_SPRITES; i++)
 		{
 		vdp_spriteMoveTo(i, sp[i].x, sp[i].y);
@@ -140,17 +131,15 @@ int main(int argc, char * argv[]) {
 	
 	vdp_spriteRefresh();
 
-	//EI();
-	
 	printf("Animating... Press any key to exit\n\r");
 	for (i = 0; i < 1000; i++)
 		{
 		waitvblank();
-		if (i > 500)
+		if (i > 400)
 			{
-			vdp_scroll(1, 1, 1);
-			vdp_plotColour(randR(256), randR(256), randR(256));
-			vdp_plotPoint(319, randR(200));
+			//vdp_scroll(1, 1, 1);
+			vdp_plotColour(randR(16));
+			vdp_plotPoint(randR(1024), randR(1024));		// plot coords are now "normalised" to a 1024x1024 "virtual screen"?
 			}
 
 		for (j = 0; j < NUM_SPRITES; j++)
@@ -173,17 +162,12 @@ int main(int argc, char * argv[]) {
 			}
 		
 		vdp_spriteRefresh();
-			
-		//keycode = getsysvar8bit(sysvar_keycode);	// doesn't work?
-		k = getkeycode();
-		//printf("%d\n\r", k);
-		//if (27 == k)
+
+		// Check for keypress
+		k = getsysvar_vkeydown();
 		if (k != 0)
 			break;
-
-		//t = getsysvar16bit(sysvar_time);
-		//vdp_cursorGoto(0, 20);
-		//printf("%d\n\r", t);
+		//printf("%d\n\r", k);
 		}
 		
 	vdp_spriteActivateTotal(0);
